@@ -1,0 +1,17 @@
+{
+  "name": "lazyrange",
+  "version": "0.1.0",
+  "description": "A node module for lazily instantiated ranges.",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/babel src/index.js --out-file build/index.js",
+    "test": "./node_modules/.bin/mocha ./test"
+  },
+  "author": "Nicholas Clawson",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^5.6.14",
+    "chai": "^3.0.0",
+    "mocha": "^2.2.5"
+  }
+}
