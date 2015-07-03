@@ -1,6 +1,3 @@
-import assert from 'assert';
-
-
 /**
  * Represents an iterable range of numbers
  * @class
@@ -127,3 +124,13 @@ export default function range(start, end, step) {
 // e.g. {range, Range} = require('lazyrange');
 range.Range = Range;
 range.range = range;
+
+
+
+//
+// Util
+//
+
+function assert(statement, message) {
+    if (!statement) throw new Error(message);
+}

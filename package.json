@@ -1,17 +1,21 @@
 {
   "name": "lazyrange",
   "version": "0.1.0",
-  "description": "A node module for lazily instantiated ranges.",
+  "description": "Speedy ranges for node, inspired by Python.",
+  "homepage": "https://github.com/nickclaw/lazyrange",
   "main": "build/index.js",
   "scripts": {
-    "build": "./node_modules/.bin/babel src/index.js --out-file build/index.js",
-    "test": "./node_modules/.bin/mocha ./test"
+    "build": "./scripts/build.sh",
+    "test": "./scripts/test.sh"
   },
-  "author": "Nicholas Clawson",
+  "author": "Nicholas Clawson <nickclaw@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "babel": "^5.6.14",
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
     "chai": "^3.0.0",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "uglify": "^0.1.5"
   }
 }

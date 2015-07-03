@@ -1,0 +1,24 @@
+{
+  "name": "lazyrange",
+  "version": "0.1.0",
+  "description": "Speedy ranges for node, inspired by Python.",
+  "homepage": "https://github.com/nickclaw/lazyrange",
+  "authors": [
+    "Nicholas Clawson <nickclaw@gmail.com>"
+  ],
+  "main": "build/lazyrange.js",
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "scripts",
+    "src",
+    "test",
+    ".*",
+    "package.json",
+    "build/index.js"
+  ],
+  "moduleType": [
+      "globals",
+      "amd"
+  ]
+}
