@@ -1,4 +1,4 @@
-lazyrange
+lazyrange [![Build Status](https://travis-ci.org/nickclaw/lazyrange.svg?branch=master)](https://travis-ci.org/nickclaw/lazyrange)
 ---------
 
 ## Example
