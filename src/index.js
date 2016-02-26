@@ -1,8 +1,10 @@
+import assert from 'assert';
+
 /**
  * Represents an iterable range of numbers
  * @class
  */
-class Range {
+export class Range {
 
     /**
      * Create the range
@@ -10,8 +12,9 @@ class Range {
      * @param {Integer=} end
      * @param {Integer=1} step
      */
-    constructor(start, end, step = 1) {
-        if (end === undefined) [start, end] = [0, start];
+    constructor(_start, _end, step = 1) {
+        const start = _end === undefined ? 0 : _start;
+        const end = _end === undefined ? _start : _end;
 
         assert(Number.isInteger(start), 'start must be an integer');
         assert(Number.isInteger(end, 'end must be an integer'));
@@ -44,9 +47,9 @@ class Range {
      * Allow lazy iteration
      */
     *[Symbol.iterator]() {
-        let ascending = this.step > 0;
+        const ascending = this.step > 0;
 
-        for (let i = this.start; ascending ? i < this.end : i > this.end; i+= this.step) {
+        for (let i = this.start; ascending ? i < this.end : i > this.end; i += this.step) {
             yield i;
         }
     }
@@ -70,10 +73,10 @@ class Range {
      * @return {Array}
      */
     map(callback) {
-        let i = 0,
-            a = [];
+        let i = 0;
+        const a = [];
 
-        for (let v of this) {
+        for (const v of this) {
             a.push(callback(v, i++));
         }
 
@@ -86,10 +89,11 @@ class Range {
      * @param {*=} memo
      * @return {*}
      */
-    reduce(callback, memo) {
+    reduce(callback, _memo) {
+        let memo = _memo;
         let i = 0;
 
-        for (let v of this) {
+        for (const v of this) {
             memo = callback(memo, v, i++);
         }
 
@@ -103,7 +107,7 @@ class Range {
     forEach(callback) {
         let i = 0;
 
-        for (let v of this) {
+        for (const v of this) {
             callback(v, i++);
         }
     }
@@ -116,21 +120,8 @@ class Range {
     }
 }
 
-export default function range(start, end, step) {
+export function range(start, end, step) {
     return new Range(start, end, step);
 }
 
-// export class and alias for dereferencing
-// e.g. {range, Range} = require('lazyrange');
-range.Range = Range;
-range.range = range;
-
-
-
-//
-// Util
-//
-
-function assert(statement, message) {
-    if (!statement) throw new Error(message);
-}
+export default range;

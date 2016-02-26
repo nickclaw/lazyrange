@@ -1,18 +1,15 @@
 import {expect} from 'chai';
-import {Range, range} from '../src/index.js';
+import r, {Range, range} from '../src/index.js';
 
 describe('lazyrange module', function() {
 
     describe('importing', function() {
 
         it('should export the range function by default', function() {
-            let range = require('../build/index.js');
-            expect(range.name).to.equal('range');
+            expect(r.name).to.equal('range');
         });
 
         it('should export the class and alias for object dereferencing', function() {
-            let {range, Range} = require('../build/index.js');
-
             expect(range.name).to.equal('range');
             expect(Range.name).to.equal('Range');
         });
